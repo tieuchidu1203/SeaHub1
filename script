@@ -1,8 +1,8 @@
 function GetUi() 
     if getgenv().Tvk then
-    if game.CoreGui:FindFirstChild("Sea Hub GUI") then
+    if game.CoreGui:FindFirstChild("ChiDu GUI") then
         for a, v in ipairs(game.CoreGui:GetChildren()) do
-            if v.Name == "Sea Hub GUI" then
+            if v.Name == "ChiDu GUI" then
                 v:Destroy()
             end
         end
@@ -123,8 +123,8 @@ local j = game:GetService("HttpService")
 local k = "!CustomUI.json"
 function SaveCustomUISettings()
     local j = game:GetService("HttpService")
-    if not isfolder("Sea Hub") then
-        makefolder("Sea Hub")
+    if not isfolder("ChiDu") then
+        makefolder("ChiDu")
     end
     writefile("Sea Hub/" .. k, j:JSONEncode(CorrectTable(e)))
 end
