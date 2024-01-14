@@ -337,7 +337,6 @@ getgenv().GUI = u.Gui
 --             local res = request({
 --                 Url = url,
 --                 Method = Method,
---                 Headers = {cookie="CONSENT=YES+"..googlev},
 --                 Body = Body
 --             })
             
