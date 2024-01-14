@@ -5687,7 +5687,6 @@ local AutoSprout = false
 local times = 0.2
 local Running = true
 local Invisible = false
-local Particles = game.Workspace.Particles
 local vu = game:GetService("VirtualUser")
 local x = 0
 local y = 0
