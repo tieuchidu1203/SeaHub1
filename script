@@ -9089,7 +9089,6 @@ Section11.CreateToggle({Title = 'Eye All Sprout', Desc = 'Will make all invisibl
             if plr.PlayerScripts:FindFirstChild("LocalPartsInit") then 
                 plr.PlayerScripts.LocalPartsInit:Destroy()
             end
-            for _, v in pairs(Folder2:GetChildren()) do
                 pcall(function() 
                     if v.Name=="Sprout" then 
                         v.Transparency = 0
