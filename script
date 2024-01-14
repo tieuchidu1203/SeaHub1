@@ -12863,7 +12863,6 @@ local temp
 ParticleTools = require(game.ReplicatedStorage.LocalFX.LocalTargetPracticeBeam)
 old3 = hookfunction(require(game.ReplicatedStorage.ParticleTools).MakeCrosshairDisk,function(...) 
     if tostring(getfenv(debug.info(2,"f")).script) == "LocalTargetPracticeBeam" then 
-        local T = old3(...)
         temp = T
         return T
     else
@@ -12876,8 +12875,6 @@ old = hookfunction(ParticleTools.Make,function(...)
     if tostring(rac.Player)==plr.Name then 
         if rac.Action == "Make" then 
             temp = nil
-            local a = old(...)
-            if temp and rac and rac.FEID then 
                 --print(rac.Attach.Parent,temp)
                 local att = LocalFlyingEntity.GetEntity(rac.FEID).Part
                 if att then 
