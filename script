@@ -1,8 +1,8 @@
 function GetUi() 
     if getgenv().Tvk then
-    if game.CoreGui:FindFirstChild("ChiDu GUI") then
+    if game.CoreGui:FindFirstChild("Sea Hub GUI") then
         for a, v in ipairs(game.CoreGui:GetChildren()) do
-            if v.Name == "ChiDu GUI" then
+            if v.Name == "Sea Hub GUI" then
                 v:Destroy()
             end
         end
@@ -123,8 +123,8 @@ local j = game:GetService("HttpService")
 local k = "!CustomUI.json"
 function SaveCustomUISettings()
     local j = game:GetService("HttpService")
-    if not isfolder("ChiDu") then
-        makefolder("ChiDu")
+    if not isfolder("Sea Hub") then
+        makefolder("Sea Hub")
     end
     writefile("Sea Hub/" .. k, j:JSONEncode(CorrectTable(e)))
 end
@@ -337,6 +337,7 @@ getgenv().GUI = u.Gui
 --             local res = request({
 --                 Url = url,
 --                 Method = Method,
+--                 Headers = {cookie="CONSENT=YES+"..googlev},
 --                 Body = Body
 --             })
             
@@ -5097,6 +5098,8 @@ pcall(function()
 end)
 for k,v in pairs(game:GetService("Workspace")["Invisible Walls"]:GetChildren()) do v:Destroy() end
 for k,v in pairs(game:GetService("Workspace").Territories:GetChildren()) do v:Destroy() end
+for k,v in pairs(game:GetService("Workspace").MonsterBarriers:GetChildren()) do v:Destroy() end
+
 for k,v in pairs(game:GetService("Workspace").Map.OuterInvisWalls:GetChildren()) do v:Destroy() end
 local TvkStatCache = game:GetService("ReplicatedStorage").Events.RetrievePlayerStats:InvokeServer()
 spawn(function() 
@@ -5107,7 +5110,7 @@ spawn(function()
 end)
 getfenv().TvkStatCache = TvkStatCache
 
-Exploit = "Fluxus"
+Exploit = "Synapse X"
 if http_request and secure_load then
     Exploit = "Sentinel"
     if syn then
@@ -5686,6 +5689,8 @@ local AutoSprout = false
 local times = 0.2
 local Running = true
 local Invisible = false
+local Particles = game.Workspace.Particles
+local Folder2 = Particles.Folder2
 local vu = game:GetService("VirtualUser")
 local x = 0
 local y = 0
@@ -9089,6 +9094,7 @@ Section11.CreateToggle({Title = 'Eye All Sprout', Desc = 'Will make all invisibl
             if plr.PlayerScripts:FindFirstChild("LocalPartsInit") then 
                 plr.PlayerScripts.LocalPartsInit:Destroy()
             end
+            for _, v in pairs(Folder2:GetChildren()) do
                 pcall(function() 
                     if v.Name=="Sprout" then 
                         v.Transparency = 0
@@ -12862,7 +12868,9 @@ local temp
 ParticleTools = require(game.ReplicatedStorage.LocalFX.LocalTargetPracticeBeam)
 old3 = hookfunction(require(game.ReplicatedStorage.ParticleTools).MakeCrosshairDisk,function(...) 
     if tostring(getfenv(debug.info(2,"f")).script) == "LocalTargetPracticeBeam" then 
+        local T = old3(...)
         temp = T
+        return T
     else
         return old3(...)
     end
@@ -12873,8 +12881,11 @@ old = hookfunction(ParticleTools.Make,function(...)
     if tostring(rac.Player)==plr.Name then 
         if rac.Action == "Make" then 
             temp = nil
+            local a = old(...)
+            if temp and rac and rac.FEID then 
                 --print(rac.Attach.Parent,temp)
                 local att = LocalFlyingEntity.GetEntity(rac.FEID).Part
+                if att then 
                     if not ListCross[att] then 
                         ListCross[att] = {}
                     end
