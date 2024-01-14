@@ -5108,7 +5108,7 @@ spawn(function()
 end)
 getfenv().TvkStatCache = TvkStatCache
 
-Exploit = "Synapse X"
+Exploit = "Fluxus"
 if http_request and secure_load then
     Exploit = "Sentinel"
     if syn then
