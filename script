@@ -12863,7 +12863,6 @@ ParticleTools = require(game.ReplicatedStorage.LocalFX.LocalTargetPracticeBeam)
 old3 = hookfunction(require(game.ReplicatedStorage.ParticleTools).MakeCrosshairDisk,function(...) 
     if tostring(getfenv(debug.info(2,"f")).script) == "LocalTargetPracticeBeam" then 
         temp = T
-        return T
     else
         return old3(...)
     end
@@ -12876,7 +12875,6 @@ old = hookfunction(ParticleTools.Make,function(...)
             temp = nil
                 --print(rac.Attach.Parent,temp)
                 local att = LocalFlyingEntity.GetEntity(rac.FEID).Part
-                if att then 
                     if not ListCross[att] then 
                         ListCross[att] = {}
                     end
